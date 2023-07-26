@@ -43,8 +43,8 @@ const App: FC = () => {
                         <Bonus currentQuantity={bonusData?.currentQuantity} />
 
                         <Burning
-                           forBurningQuantity={bonusData!.forBurningQuantity}
-                           dateBurning={bonusData!.dateBurning}
+                           forBurningQuantity={bonusData.forBurningQuantity}
+                           dateBurning={bonusData.dateBurning}
                         />
                      </div>
                      <div className={styles.right}>
