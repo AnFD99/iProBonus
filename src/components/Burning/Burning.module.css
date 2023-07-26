@@ -1,0 +1,9 @@
+.burning {
+	display: flex;
+	gap: 10px;
+	color: #979797;
+}
+
+.fire {
+	margin-right: 10px;
+}
