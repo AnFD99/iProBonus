@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { IAccessResponse, IBonusResponse } from './response.interface'
 
 const ACCESS_URL = 'http://84.201.188.117:5021/api/v3/clients/accesstoken'
 const BONUS_URL = 'http://84.201.188.117:5003/api/v3/ibonus/generalinfo/'
@@ -12,7 +13,7 @@ const instanceAPI = axios.create({
 export const bonusAPI = {
    async getAccessToken() {
       try {
-         const response = await instanceAPI.post(ACCESS_URL, {
+         const response = await instanceAPI.post<IAccessResponse>(ACCESS_URL, {
             idClient: process.env.REACT_APP_CLIENT_ID,
             accessToken: '',
             paramName: 'device',
@@ -30,7 +31,7 @@ export const bonusAPI = {
    },
    async getBonusCount() {
       try {
-         const response = await instanceAPI.get(
+         const response = await instanceAPI.get<IBonusResponse>(
             BONUS_URL + localStorage.getItem('accessToken'),
          )
          return response.data.data

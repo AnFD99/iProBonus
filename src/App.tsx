@@ -7,7 +7,7 @@ import Burning from './components/Burning/Burning'
 import Bonus from './components/Bonus/Bonus'
 
 const App: FC = () => {
-   const [bonusData, setBonusData] = useState<IBonus>({
+   const [bonusData, setBonusData] = useState<IBonus | undefined>({
       currentQuantity: 0,
       dateBurning: '',
       forBurningQuantity: 0,
@@ -40,11 +40,11 @@ const App: FC = () => {
                   </header>
                   <div className={styles.bonus__container}>
                      <div className={styles.left}>
-                        <Bonus currentQuantity={bonusData?.currentQuantity} />
+                        <Bonus currentQuantity={bonusData?.currentQuantity || 0} />
 
                         <Burning
-                           forBurningQuantity={bonusData.forBurningQuantity}
-                           dateBurning={bonusData.dateBurning}
+                           forBurningQuantity={bonusData?.forBurningQuantity || 0}
+                           dateBurning={bonusData?.dateBurning || ''}
                         />
                      </div>
                      <div className={styles.right}>

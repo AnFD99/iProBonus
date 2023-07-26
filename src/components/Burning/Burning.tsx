@@ -8,7 +8,7 @@ const Burning: FC<IBurning> = ({ dateBurning, forBurningQuantity }) => {
    return (
       <div className={styles.burning}>
          <div className={styles.date}>
-            {formateDate(dateBurning || '')} сгорит
+            {formateDate(dateBurning || '00-00')} сгорит
          </div>
          <div className={styles.count}>
             <img src={fire} alt='fire icon' className={styles.fire} />
